@@ -4,6 +4,8 @@
 */
 
 apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "net.rabbitfighter.lightning.LightingBolt"
 version = '1.0'
 
 

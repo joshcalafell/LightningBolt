@@ -23,7 +23,10 @@ Requirements
 ------------
 <ul>
 <li> Java vers 1.7+ </l1>
-<li> Gradle vers 2.0+ (for installation help go to <a href="https://gradle.org/">Gradle's home page</a>)</li>
+<li> Gradle vers 2.0+ (for installation help go to <a href="https://gradle.org/">
+<li> Slick2D Libraries (downloaded automatically with git clone)</li>
+<li> LWJGL Libraries and natives (downloaded automatically with git clone)</li>
+<li> OpenGL compatible graphics (you probably have this)</li>
 </ul>
 
 Folder Structure
