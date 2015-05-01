@@ -1,0 +1,76 @@
+/*
+* Gradle setup for LightningBolt
+* Author: Joshua Michael Waggoner (@rabbitfighter81)
+*/
+
+apply plugin: 'java'
+version = '1.0'
+
+
+/* 
+* Repositories to query 
+*/
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+/*
+* Dependencies for program
+*/
+
+dependencies {
+    compile files(
+        [
+          'libs/jar/lwjgl.jar',
+          'libs/jar/lwjgl_util.jar',
+          'libs/jar/slick.jar'
+        ]
+    )
+}
+
+/*
+* Jar configuration
+*/
+
+jar {
+    from configurations.compile.collect { zipTree it }
+    manifest.attributes 'Main-Class': 'net.rabbitfighter.lightning.LightningBolt' 
+}
+
+/*
+* Runs the built jar file allowing user to play the game.
+*/
+
+task runJar(type: JavaExec, dependsOn: jar) {
+    main 'net.rabbitfighter.lightning.LightningBolt'
+    classpath = sourceSets.main.runtimeClasspath 
+}
+
+/*
+* Load proper native library path depending on OS type.
+* Note: This affects all tasks with type: JavaExec
+*/
+
+tasks.withType(JavaExec) {
+
+    def os = System.getProperty("os.name").toLowerCase()
+    
+    if (os.contains("windows")) { 
+        systemProperty "java.library.path", file("./libs/natives/windows")
+    }
+
+    else if (os.contains("linux")) { 
+        systemProperty "java.library.path", file("./libs/natives/linux")
+    }
+
+    else if (os.contains("mac")) { 
+        systemProperty "java.library.path", file("./libs/natives/macosx")
+    }
+
+}
+
+//EOF
