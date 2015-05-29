@@ -2,6 +2,9 @@ LightningBolt
 =============
 A lightning bolt test using Slick2D, OpenGL, and LWJGL libraries, using algorithms influenced by a blog post by Drillian's House of Game Developement (http://drilian.com/2009/02/25/lightning-bolts/). Sometimes I just want to develop a simple idea, and maybe it will have a purpose later, and I usually learn something. 
 
+[![Build Status](https://travis-ci.org/rabbitfighter81/Simple-Tank-Game.png)](#https://travis-ci.org/rabbitfighter81/LightningBolt.png)
+
+
 Navigation
 ----------
 [LightningBolt](#lightningbolt) |
